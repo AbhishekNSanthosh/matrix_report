@@ -135,7 +135,7 @@ const Home = () => {
       <Grid container spacing={3} sx={{ mb: 3 }}>
         <CountCard
           loading={false}
-          onClick={() => router.push('/user')}
+          onClick={() => router.push('/')}
           label={'Customers'}
           count="30"
           icon={'/images/icons/users.jpg'}
@@ -144,7 +144,7 @@ const Home = () => {
 
         <CountCard
           loading={false}
-          onClick={() => router.push('/coach')}
+          onClick={() => router.push('/')}
           label="Coach's"
           count="30"
           icon={'/images/icons/users.jpg'}

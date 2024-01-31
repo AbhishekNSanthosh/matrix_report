@@ -21,17 +21,14 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'dashboard'
   },
   {
-    sectionTitle: 'User Management',
-    acl: 'common'
-  },
-  {
     path: '/user',
     id: '2',
-    title: 'User',
+    title: 'User Management',
     translationKey: '',
     icon: AccountMultiple,
     acl: 'user'
   },
+
   {
     path: '/user',
     id: '3',
