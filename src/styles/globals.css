@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  background: #ffffff !important;
+  overflow: visible !important;
+  margin: 0px;
+}
+
+.progress-bar-fill-book {
+  background: #ff7100;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: #202020 !important;
+}
+
+.MuiOtpInput-TextField {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+}
+
+.toast-custom {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+}
