@@ -13,15 +13,16 @@ export const projectConfigs = {
 
 export const DRAWER_NAVIGATION_LIST = [
   {
-    path: '/home',
+    path: '/',
     id: '1',
     title: 'Dashboard',
     translationKey: '',
     icon: ViewDashboard,
     acl: 'dashboard'
   },
+
   {
-    path: '/user',
+    path: '/',
     id: '2',
     title: 'User Management',
     translationKey: '',
@@ -30,7 +31,7 @@ export const DRAWER_NAVIGATION_LIST = [
   },
 
   {
-    path: '/user',
+    path: '/',
     id: '3',
     title: 'Onboarding',
     translationKey: '',
@@ -38,7 +39,7 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'coach'
   },
   {
-    path: '/questionnaires',
+    path: '/',
     id: '4',
     title: 'Zata Logs',
     translationKey: '',
@@ -46,8 +47,8 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'questionnaires'
   },
   {
-    path: '/questionnaires',
-    id: '4',
+    path: '/',
+    id: '5',
     title: 'Invoices',
     translationKey: '',
     icon: PencilBox,
@@ -55,8 +56,8 @@ export const DRAWER_NAVIGATION_LIST = [
   },
 
   {
-    path: '/workout/categories',
-    id: '1',
+    path: '/',
+    id: '6',
     title: 'Settings',
     translationKey: '',
     icon: MapCheckOutline,

@@ -77,13 +77,12 @@ function DrawerList({ list, drawerOpen = false, onSelect }) {
           justifyContent: drawerOpen ? 'initial' : 'center',
           px: 2.5,
           '&.Mui-selected': {
-            backgroundColor: '#FFF',
             '&:hover': {
               backgroundColor: '#FFFFFF30'
             }
           },
           '&:hover': {
-            backgroundColor: '#FFFFFF30'
+            backgroundColor: '#FFF'
           }
         }}>
         <ListItemIcon

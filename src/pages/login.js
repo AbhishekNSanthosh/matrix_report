@@ -241,7 +241,7 @@ const styles = {
     width: '100%',
     my: 3
   },
-  button: { backgroundColor: '#0B2942', color: '#FFF' }
+  button: { backgroundColor: '#259FCA', color: '#FFF' }
 };
 
 Login.getLayout = (page) => page;

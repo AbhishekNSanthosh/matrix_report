@@ -13,7 +13,7 @@ let themeConfig = createTheme({
   palette: {
     primary: {
       light: '#202020',
-      main: '#0B2942',
+      main: '#259FCA',
       dark: '#797979',
       contrastText: '#fff'
     },
@@ -130,7 +130,7 @@ let themeConfig = createTheme({
     MuiButton: {
       styleOverrides: {
         containedSecondary: {
-          backgroundColor: '#0B2942', // Light Orange background color
+          backgroundColor: '#259FCA', // Light Orange background color
           color: '#FFFFFF',
           ':hover': {
             backgroundColor: '#3D82BC', // Light Orange (hover) background color
@@ -149,7 +149,7 @@ let themeConfig = createTheme({
           fontWeight: 500,
           fontSize: 14,
           ...(ownerState.variant === 'outlined' && {
-            border: '1px solid #0B2942',
+            border: '1px solid #259FCA',
             color: '#FE7F1D'
           })
         })
@@ -247,14 +247,14 @@ let themeConfig = createTheme({
         },
         outlined: {
           '&.MuiChip-colorDefault': {
-            borderColor: `#0B2942`,
+            borderColor: `#259FCA`,
             padding: '10px',
             fontWeight: 600
           }
         },
         filled: {
           '&.MuiChip-colorDefault': {
-            backgroundColor: `#0B2942`,
+            backgroundColor: `#259FCA`,
             color: '#fff',
             padding: '10px',
             fontWeight: 600
