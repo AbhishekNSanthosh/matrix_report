@@ -7,8 +7,8 @@ import CardContent from '@mui/material/CardContent';
 import ReactApexcharts from 'src/@core/components/react-apexcharts';
 
 const areaColors = {
-  series2: '#FFB886',
-  series3: '#EE7623'
+  series2: '#3D82BC',
+  series3: '#0B2942'
 };
 
 const SalesChart = () => {

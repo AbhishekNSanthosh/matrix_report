@@ -39,7 +39,7 @@ const DrawerContent = ({ handleDrawerOpenClose, open, onSelect }) => (
         <Image
           onClick={handleDrawerOpenClose}
           src={'/logo.svg'}
-          alt={'Nadena'}
+          alt={'Zatca'}
           height={50}
           width={50}
           objectFit="contain"
@@ -280,18 +280,18 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
     // backgroundColor: 'linear-gradient(45deg, #FA0065 0%, #FFB100 100%)',
-    backgroundImage: 'linear-gradient(60deg, #FA0065 0%, #FFB100 100%)',
+    backgroundImage: 'linear-gradient(60deg, #0B2942 0%, #3D82BC 100%)',
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': {
-        backgroundImage: 'linear-gradient(60deg, #FA0065 0%, #FFB100 100%)',
+        backgroundImage: 'linear-gradient(60deg, #0B2942 0%, #3D82BC 100%)',
         ...openedMixin(theme)
       }
     }),
     ...(!open && {
       ...closedMixin(theme),
       '& .MuiDrawer-paper': {
-        backgroundImage: 'linear-gradient(60deg, #FA0065 0%, #FFB100 100%)',
+        backgroundImage: 'linear-gradient(60deg, #0B2942 0%, #3D82BC 100%)',
         ...closedMixin(theme)
       }
     }),

@@ -115,7 +115,7 @@ const Login = () => {
       <LoginContainerGrid xs={12} sm={10} md={5}>
         <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <Typography color="text.main" sx={styles.welcomeHeader}>
-            Nadena
+            Zatca
           </Typography>
           <Typography color="text.main" sx={styles.welcomeHeader}>
             Hi, welcome back!
@@ -241,7 +241,7 @@ const styles = {
     width: '100%',
     my: 3
   },
-  button: { backgroundColor: '#EE7623', color: '#FFF' }
+  button: { backgroundColor: '#0B2942', color: '#FFF' }
 };
 
 Login.getLayout = (page) => page;

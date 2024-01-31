@@ -27,7 +27,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   return (
     <AuthProvider>
       <Head>
-        <title>Nadena Fitness Solution Dubai, UAE</title>
+        <title>Zatca</title>
       </Head>
       <SessionProvider session={session}>
         <ThemeProvider theme={defaultTheme}>

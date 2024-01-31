@@ -124,7 +124,7 @@ const Home = () => {
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
         <Grid>
           <Typography variant={'h5'} sx={{ fontWeight: '500' }}>
-            Nadena
+            Zatca
           </Typography>
           <Typography variant={'body1'} sx={{ fontWeight: '400' }}>
             Welcome Back Nadena Admin....
