@@ -75,22 +75,14 @@ function DrawerList({ list, drawerOpen = false, onSelect }) {
           minHeight: 48,
           borderRadius: 2.5,
           justifyContent: drawerOpen ? 'initial' : 'center',
-          px: 2.5,
-          '&.Mui-selected': {
-            '&:hover': {
-              backgroundColor: '#FFFFFF30'
-            }
-          },
-          '&:hover': {
-            backgroundColor: '#FFF'
-          }
+          px: 2.5
         }}>
         <ListItemIcon
           sx={{
             minWidth: 0,
             mr: drawerOpen ? 1.5 : 'auto',
-            justifyContent: 'center',
-            color: isActive ? 'primary.main' : '#FFF'
+            justifyContent: 'center'
+            // color: isActive ? 'primary.main' : ''
           }}>
           <UserIcon icon={IconTag} iconProps={{ size: '24px' }} componentType="vertical-menu" />
         </ListItemIcon>
@@ -111,11 +103,7 @@ function DrawerList({ list, drawerOpen = false, onSelect }) {
               display: drawerOpen ? 'auto' : 'none',
               minWidth: 0
             }}>
-            {open ? (
-              <KeyboardArrowUpOutlinedIcon sx={{ color: '#FFF' }} />
-            ) : (
-              <KeyboardArrowDownOutlinedIcon sx={{ color: '#FFF' }} />
-            )}
+            {open ? <KeyboardArrowUpOutlinedIcon /> : <KeyboardArrowDownOutlinedIcon />}
           </ListItemIcon>
         )}
       </ListItemButton>
@@ -133,16 +121,7 @@ function DrawerList({ list, drawerOpen = false, onSelect }) {
                   sx={{
                     minHeight: 48,
                     px: 2.5,
-                    '&.Mui-selected': {
-                      backgroundColor: '#FFF',
-                      borderRadius: 2.5,
-                      '&:hover': {
-                        backgroundColor: '#FFFFFF30'
-                      }
-                    },
-                    '&:hover': {
-                      backgroundColor: '#FFFFFF30'
-                    },
+
                     ml: 5
                   }}>
                   <ListItemIcon
@@ -152,7 +131,6 @@ function DrawerList({ list, drawerOpen = false, onSelect }) {
                     }}>
                     <Circle
                       sx={{
-                        color: subList?.path === router?.pathname ? 'primary.main' : '#FFF',
                         fontSize: '6px'
                       }}
                     />

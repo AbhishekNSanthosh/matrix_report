@@ -23,3 +23,12 @@ export const GET_ADMIN = gql`
     }
   }
 `;
+export const GET_ALL_SERVICE_REQUEST_TRANSACTIONS = gql`
+  query paymentTypes {
+    paymentTypes {
+      id
+      name
+      updated_at
+    }
+  }
+`;

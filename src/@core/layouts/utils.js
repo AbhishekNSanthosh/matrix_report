@@ -7,13 +7,15 @@
  */
 export const handleURLQueries = (router, path) => {
   if (Object.keys(router.query).length && path) {
-    const arr = Object.keys(router.query)
+    const arr = Object.keys(router.query);
 
-    return router.asPath.includes(path) && router.asPath.includes(router.query[arr[0]]) && path !== '/'
+    return (
+      router.asPath.includes(path) && router.asPath.includes(router.query[arr[0]]) && path !== '/'
+    );
   }
 
-  return false
-}
+  return false;
+};
 
 /**
  * Check if the given item has the given url
@@ -23,17 +25,17 @@ export const handleURLQueries = (router, path) => {
  * @param currentURL
  */
 export const hasActiveChild = (item, currentURL) => {
-  const { children } = item
+  const { children } = item;
   if (!children) {
-    return false
+    return false;
   }
   for (const child of children) {
     if (child.children) {
       if (hasActiveChild(child, currentURL)) {
-        return true
+        return true;
       }
     }
-    const childPath = child.path
+    const childPath = child.path;
 
     // Check if the child has a link and is active
     if (
@@ -42,12 +44,12 @@ export const hasActiveChild = (item, currentURL) => {
       currentURL &&
       (childPath === currentURL || (currentURL.includes(childPath) && childPath !== '/'))
     ) {
-      return true
+      return true;
     }
   }
 
-  return false
-}
+  return false;
+};
 
 /**
  * Check if this is a children
@@ -58,13 +60,13 @@ export const hasActiveChild = (item, currentURL) => {
  * @param currentActiveGroup
  */
 export const removeChildren = (children, openGroup, currentActiveGroup) => {
-  children.forEach(child => {
+  children.forEach((child) => {
     if (!currentActiveGroup.includes(child.title)) {
-      const index = openGroup.indexOf(child.title)
-      if (index > -1) openGroup.splice(index, 1)
+      const index = openGroup.indexOf(child.title);
+      if (index > -1) openGroup.splice(index, 1);
 
       // @ts-ignore
-      if (child.children) removeChildren(child.children, openGroup, currentActiveGroup)
+      if (child.children) removeChildren(child.children, openGroup, currentActiveGroup);
     }
-  })
-}
+  });
+};

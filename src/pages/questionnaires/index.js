@@ -142,9 +142,9 @@ const Questionnaires = () => {
             value={search}
             handleFilter={setSearch}
             toggle={() => router.push('/questionnaires/add')}
-            placeholder="Search Questionnaires"
-            buttonLabel="Add Questionnaires"
-            title="Questionnaires"
+            placeholder="Search "
+            buttonLabel="Add Logs"
+            title="Logs"
           />
           <DataGrid
             autoHeight

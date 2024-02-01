@@ -22,7 +22,7 @@ export const DRAWER_NAVIGATION_LIST = [
   },
 
   {
-    path: '/',
+    path: '/user',
     id: '2',
     title: 'User Management',
     translationKey: '',
@@ -31,7 +31,7 @@ export const DRAWER_NAVIGATION_LIST = [
   },
 
   {
-    path: '/',
+    path: '/orders',
     id: '3',
     title: 'Onboarding',
     translationKey: '',
@@ -39,7 +39,7 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'coach'
   },
   {
-    path: '/',
+    path: '/questionnaires',
     id: '4',
     title: 'Zata Logs',
     translationKey: '',
@@ -47,7 +47,7 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'questionnaires'
   },
   {
-    path: '/',
+    path: '/invoices',
     id: '5',
     title: 'Invoices',
     translationKey: '',

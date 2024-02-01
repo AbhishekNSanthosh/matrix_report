@@ -95,19 +95,7 @@ const columns = [
       );
     }
   },
-  {
-    flex: 0.03,
-    minWidth: 200,
-    field: 'seller',
-    headerName: 'Seller',
-    renderCell: ({ row }) => {
-      return (
-        <Typography noWrap variant="body2">
-          {row?.coach?.first_name} {row?.coach?.last_name}
-        </Typography>
-      );
-    }
-  },
+
   {
     flex: 0.02,
     minWidth: 100,
