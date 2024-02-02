@@ -115,7 +115,7 @@ const Login = () => {
       <LoginContainerGrid xs={12} sm={10} md={5}>
         <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <Typography color="text.main" sx={styles.welcomeHeader}>
-            Zatca
+            Tax Live
           </Typography>
           <Typography color="text.main" sx={styles.welcomeHeader}>
             Hi, welcome back!

@@ -24,7 +24,7 @@ export const DRAWER_NAVIGATION_LIST = [
   {
     path: '/user',
     id: '2',
-    title: 'User Management',
+    title: 'Users',
     translationKey: '',
     icon: AccountMultiple,
     acl: 'user'
@@ -41,7 +41,7 @@ export const DRAWER_NAVIGATION_LIST = [
   {
     path: '/questionnaires',
     id: '4',
-    title: 'Zata Logs',
+    title: 'Zatca Logs',
     translationKey: '',
     icon: PencilBox,
     acl: 'questionnaires'
