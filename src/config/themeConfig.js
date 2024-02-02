@@ -9,7 +9,7 @@ import Circle from 'mdi-material-ui/Circle';
 
 const themeConfig = {
   // ** Layout Configs
-  templateName: 'Horseoss Service Provider' /* App Name */,
+  templateName: 'Zatca Integration' /* App Name */,
   layout: 'vertical' /* vertical | horizontal */,
   mode: 'light' /* light | dark */,
   direction: 'ltr' /* ltr | rtl */,

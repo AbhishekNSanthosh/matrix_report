@@ -53,7 +53,7 @@ const columns = [
     flex: 0.02,
     minWidth: 100,
     field: 'status',
-    headerName: 'Order Status',
+    headerName: 'Status',
     renderCell: ({ row }) => {
       return (
         <Chip

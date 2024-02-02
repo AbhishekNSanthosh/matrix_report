@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
-import { styled } from '@mui/material/styles';
+
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import CardHeader from '@mui/material/CardHeader';
@@ -23,19 +23,17 @@ import { DataGrid } from '@mui/x-data-grid';
 import Select from '@mui/material/Select';
 
 // ** Icons Imports
-import Send from 'mdi-material-ui/Send';
-import Check from 'mdi-material-ui/Check';
-import ChartPie from 'mdi-material-ui/ChartPie';
+
 import Download from 'mdi-material-ui/Download';
-import ArrowDown from 'mdi-material-ui/ArrowDown';
+
 import EyeOutline from 'mdi-material-ui/EyeOutline';
-import TrendingUp from 'mdi-material-ui/TrendingUp';
+
 import ContentCopy from 'mdi-material-ui/ContentCopy';
 import DotsVertical from 'mdi-material-ui/DotsVertical';
 import PencilOutline from 'mdi-material-ui/PencilOutline';
 import DeleteOutline from 'mdi-material-ui/DeleteOutline';
-import InformationOutline from 'mdi-material-ui/InformationOutline';
-import ContentSaveOutline from 'mdi-material-ui/ContentSaveOutline';
+// import InformationOutline from 'mdi-material-ui/InformationOutline';
+// import ContentSaveOutline from 'mdi-material-ui/ContentSaveOutline';
 
 // ** Third Party Imports
 import format from 'date-fns/format';
@@ -46,11 +44,11 @@ import DatePicker from 'react-datepicker';
 import { deleteInvoice } from 'src/store/invoice';
 
 // ** Utils Import
-import { getInitials } from 'src/@core/utils/get-initials';
+// import { getInitials } from 'src/@core/utils/get-initials';
 
-// ** Custom Components Imports
-import CustomChip from 'src/@core/components/mui/chip';
-import CustomAvatar from 'src/@core/components/mui/avatar';
+// // ** Custom Components Imports
+// import CustomChip from 'src/@core/components/mui/chip';
+// import CustomAvatar from 'src/@core/components/mui/avatar';
 import TableHeader from 'src/view/invoice/list/TableHeader';
 
 // ** Third Party Styles Imports
@@ -58,12 +56,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 // ** Styled Components
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker';
+import { Chip } from '@mui/material';
 
 // ** Styled component for the link in the dataTable
-const StyledLink = styled('a')(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.primary.main
-}));
+// const StyledLink = styled('a')(({ theme }) => ({
+//   textDecoration: 'none',
+//   color: theme.palette.primary.main
+// }));
 
 const RowOptions = ({ id }) => {
   // ** State
@@ -116,138 +115,92 @@ const RowOptions = ({ id }) => {
 };
 
 // ** Vars
-const invoiceStatusObj = {
-  Sent: { color: 'secondary', icon: <Send sx={{ fontSize: '1.25rem' }} /> },
-  Paid: { color: 'success', icon: <Check sx={{ fontSize: '1.25rem' }} /> },
-  Draft: { color: 'primary', icon: <ContentSaveOutline sx={{ fontSize: '1.25rem' }} /> },
-  'Partial Payment': { color: 'warning', icon: <ChartPie sx={{ fontSize: '1.25rem' }} /> },
-  'Past Due': { color: 'error', icon: <InformationOutline sx={{ fontSize: '1.25rem' }} /> },
-  Downloaded: { color: 'info', icon: <ArrowDown sx={{ fontSize: '1.25rem' }} /> }
-};
+// const invoiceStatusObj = {
+//   Sent: { color: 'secondary', icon: <Send sx={{ fontSize: '1.25rem' }} /> },
+//   Paid: { color: 'success', icon: <Check sx={{ fontSize: '1.25rem' }} /> },
+//   Draft: { color: 'primary', icon: <ContentSaveOutline sx={{ fontSize: '1.25rem' }} /> },
+//   'Partial Payment': { color: 'warning', icon: <ChartPie sx={{ fontSize: '1.25rem' }} /> },
+//   'Past Due': { color: 'error', icon: <InformationOutline sx={{ fontSize: '1.25rem' }} /> },
+//   Downloaded: { color: 'info', icon: <ArrowDown sx={{ fontSize: '1.25rem' }} /> }
+// };
 
 // ** renders client column
-const renderClient = (row) => {
-  if (row.avatar.length) {
-    return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />;
-  } else {
-    return (
-      <CustomAvatar
-        skin="light"
-        color={row.avatarColor || 'primary'}
-        sx={{ mr: 3, fontSize: '1rem', width: 34, height: 34 }}>
-        {getInitials(row.name || 'John Doe')}
-      </CustomAvatar>
-    );
-  }
-};
 
 const defaultColumns = [
   {
     flex: 0.1,
+    minWidth: 80,
     field: 'id',
-    minWidth: 80,
-    headerName: '#',
-    renderCell: ({ row }) => (
-      <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-        <StyledLink>{`#${row.id}`}</StyledLink>
-      </Link>
-    )
+    headerName: 'No',
+    renderCell: ({ row }) => <Typography variant="body2">{`${row.id}`}</Typography>
   },
+  // {
+  //   flex: 0.1,
+  //   minWidth: 80,
+  //   field: 'invoiceStatus',
+  //   renderHeader: () => <TrendingUp fontSize="small" sx={{ color: 'action.active' }} />,
+  //   renderCell: ({ row }) => {
+  //     const { dueDate, balance, invoiceStatus } = row;
+  //     const color = invoiceStatusObj[invoiceStatus]
+  //       ? invoiceStatusObj[invoiceStatus].color
+  //       : 'primary';
+  //     const Icon = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].icon : null;
+  //   }
+  // },
   {
     flex: 0.1,
-    minWidth: 80,
-    field: 'invoiceStatus',
-    renderHeader: () => <TrendingUp fontSize="small" sx={{ color: 'action.active' }} />,
-    renderCell: ({ row }) => {
-      const { dueDate, balance, invoiceStatus } = row;
-      const color = invoiceStatusObj[invoiceStatus]
-        ? invoiceStatusObj[invoiceStatus].color
-        : 'primary';
-      const Icon = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].icon : null;
-
-      return (
-        <Tooltip
-          title={
-            <div>
-              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
-                {invoiceStatus}
-              </Typography>
-              <br />
-              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
-                Balance:
-              </Typography>{' '}
-              {balance}
-              <br />
-              <Typography variant="caption" sx={{ color: 'common.white', fontWeight: 600 }}>
-                Due Date:
-              </Typography>{' '}
-              {dueDate}
-            </div>
-          }>
-          <CustomAvatar skin="light" color={color} sx={{ width: 34, height: 34 }}>
-            {Icon}
-          </CustomAvatar>
-        </Tooltip>
-      );
-    }
+    minWidth: 200,
+    field: 'invoice_no',
+    headerName: 'Invoice No',
+    renderCell: ({ row }) => <Typography variant="body2">{`${row.invoice_no || 0}`}</Typography>
   },
-  {
-    flex: 0.25,
-    field: 'name',
-    minWidth: 300,
-    headerName: 'Client',
-    renderCell: ({ row }) => {
-      const { name, companyEmail } = row;
 
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {renderClient(row)}
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography
-              noWrap
-              variant="body2"
-              sx={{
-                color: 'text.primary',
-                fontWeight: 500,
-                lineHeight: '22px',
-                letterSpacing: '.1px'
-              }}>
-              {name}
-            </Typography>
-            <Typography noWrap variant="caption">
-              {companyEmail}
-            </Typography>
-          </Box>
-        </Box>
-      );
-    }
-  },
   {
     flex: 0.1,
-    minWidth: 90,
-    field: 'total',
-    headerName: 'Total',
-    renderCell: ({ row }) => <Typography variant="body2">{`$${row.total || 0}`}</Typography>
+    minWidth: 200,
+    field: 'amount',
+    headerName: 'Amount',
+    renderCell: ({ row }) => <Typography variant="body2">{`$${row.amount || 0}`}</Typography>
   },
   {
     flex: 0.15,
     minWidth: 125,
-    field: 'issuedDate',
-    headerName: 'Issued Date',
-    renderCell: ({ row }) => <Typography variant="body2">{row.issuedDate}</Typography>
+    field: 'date',
+    headerName: 'Date',
+    renderCell: ({ row }) => (
+      <Typography variant="body2">
+        {row.created_at ? new Date(+row.date).toLocaleTimeString() : 'No time'}
+      </Typography>
+    )
   },
   {
-    flex: 0.1,
-    minWidth: 90,
-    field: 'balance',
-    headerName: 'Balance',
+    flex: 0.15,
+    minWidth: 125,
+    field: 'time',
+    headerName: 'Time',
+    renderCell: ({ row }) => (
+      <Typography variant="body2">
+        {row.time ? new Date(+row.time).toDateString() : 'No date'}
+      </Typography>
+    )
+  },
+  {
+    flex: 0.02,
+    minWidth: 100,
+    field: 'status',
+    headerName: 'Status',
     renderCell: ({ row }) => {
-      return row.balance !== 0 ? (
-        <Typography variant="body2" sx={{ color: 'text.primary' }}>
-          {row.balance}
-        </Typography>
-      ) : (
-        <CustomChip size="small" skin="light" color="success" label="Paid" />
+      return (
+        <Chip
+          skin="light"
+          size="small"
+          label={row?.status === 1 ? 'Success' : 'Failed'}
+          color={row?.status === 1 ? 'success' : 'error'}
+          sx={{
+            textTransform: 'capitalize',
+            '& .MuiChip-label': { lineHeight: '18px' }
+          }}
+        />
       );
     }
   }
@@ -265,7 +218,49 @@ const CustomInput = forwardRef((props, ref) => {
   );
 });
 
-/* eslint-enable */
+const staticData = [
+  {
+    id: 1,
+    invoice_no: 'IN0001',
+    amount: '8459',
+    zatca_status: 'Failed',
+    date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
+    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+  },
+  {
+    id: 2,
+    invoice_no: 'IN0002',
+    amount: '58947',
+    zatca_status: 'Success',
+    date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
+    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+  },
+  {
+    id: 3,
+    invoice_no: 'IN0003',
+    amount: '9855',
+    zatca_status: 'Failed',
+    date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
+    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+  },
+  {
+    id: 4,
+    invoice_no: 'IN0004',
+    amount: '76543',
+    zatca_status: 'Success',
+    date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
+    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+  },
+  {
+    id: 5,
+    invoice_no: 'IN0005',
+    amount: '8774',
+    zatca_status: 'Failed',
+    date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
+    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+  }
+  // Add more static data items as needed
+];
 const InvoiceList = () => {
   // ** State
   const [dates, setDates] = useState([]);
@@ -353,12 +348,9 @@ const InvoiceList = () => {
                     label="Invoice Status"
                     onChange={handleStatusValue}
                     labelId="invoice-status-select">
-                    <MenuItem value="">none</MenuItem>
-                    <MenuItem value="downloaded">Downloaded</MenuItem>
-                    <MenuItem value="draft">Draft</MenuItem>
-                    <MenuItem value="paid">Paid</MenuItem>
-                    <MenuItem value="past due">Past Due</MenuItem>
-                    <MenuItem value="partial payment">Partial Payment</MenuItem>
+                    <MenuItem value="">All</MenuItem>
+                    <MenuItem value="downloaded">Success</MenuItem>
+                    <MenuItem value="draft">Failed</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -392,11 +384,12 @@ const InvoiceList = () => {
       </Grid>
       <Grid item xs={12}>
         <Card>
+          {/* Pass the static data to your table component */}
           <TableHeader value={value} selectedRows={selectedRows} handleFilter={handleFilter} />
           <DataGrid
             autoHeight
             pagination
-            rows={''}
+            rows={staticData}
             columns={columns}
             checkboxSelection
             disableSelectionOnClick
