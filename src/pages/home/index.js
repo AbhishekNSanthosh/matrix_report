@@ -22,7 +22,7 @@ const CountCard = ({
     <Card
       onClick={onClick}
       sx={{
-        boxShadow: 'rgb(76 78 100 / 22%) 0px 2px 10px 0px',
+        boxShadow: 'rgb(76 78 100 / 8%) 0px 2px 10px 0px',
         p: 2,
         position: 'relative'
       }}>
@@ -54,52 +54,23 @@ const CountCard = ({
     </Card>
   </Grid>
 );
-const LevelWiseCountCard = ({
-  beginnericon,
-  beginnerCount,
-  begginnerHeading,
-  intermediateIcon,
-  interCount,
-  interHeading,
-  expertIcon,
-  expertCount,
-  expertHeading
-}) => (
-  <Card sx={{ boxShadow: 'rgb(76 78 100 / 22%) 0px 2px 10px 0px', p: 3, position: 'relative' }}>
-    <Typography variant="h6" mb={1} sx={{ color: '#4A4E5A', fontWeight: 'bold' }}>
-      Plan/Package Level Wise
+const LevelWiseCountCard = ({ beginnericon, beginnerCount, begginnerHeading }) => (
+  <Card sx={{ boxShadow: 'rgb(76 78 100 / 8%) 0px 2px 10px 0px', p: 2, position: 'relative' }}>
+    <Typography variant="h6" sx={{ color: '#4A4E5A', fontWeight: 'bold' }}>
+      Product Status
+    </Typography>
+    <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
+      890,344 Sales
     </Typography>
     <Grid container spacing={3}>
-      <Grid item xs={4}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Grid item xs={6}>
+        <Box sx={{ display: 'flex' }}>
           <Image objectFit="contain" height={30} width={30} src={beginnericon} />
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {beginnerCount}
           </Typography>
           <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
             {begginnerHeading}
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={4}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Image objectFit="contain" height={30} width={30} src={intermediateIcon} />
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {interCount}
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
-            {interHeading}
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={4}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Image objectFit="contain" height={30} width={30} src={expertIcon} />
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {expertCount}
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
-            {expertHeading}
           </Typography>
         </Box>
       </Grid>
@@ -120,7 +91,7 @@ const Home = () => {
             Zatca
           </Typography>
           <Typography variant={'body1'} sx={{ fontWeight: '400' }}>
-            Welcome Back Nadena Admin....
+            Welcome Back Zatca Admin....
           </Typography>
         </Grid>
       </Grid>
@@ -203,7 +174,7 @@ const Home = () => {
         <SalesChart />
       </Grid>
       <Grid item xs={12} md={4}>
-        <CardContent>
+        <CardContent sx={{ paddingTop: 0 }}>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} md={12}>
               <LevelWiseCountCard

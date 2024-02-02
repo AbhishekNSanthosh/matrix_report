@@ -103,7 +103,10 @@ const SalesChart = () => {
   ];
 
   return (
-    <Card>
+    <Card
+      sx={{
+        boxShadow: 'rgb(76 78 100 / 8%) 0px 2px 10px 0px'
+      }}>
       <CardHeader
         title="Plan/Package Sales"
         titleTypographyProps={{ variant: 'h5', fontWeight: 'bold' }}
