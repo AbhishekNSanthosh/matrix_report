@@ -6,6 +6,7 @@ import {
   FormControl,
   FormHelperText,
   Grid,
+  IconButton,
   InputLabel,
   MenuItem,
   Select,
@@ -19,6 +20,10 @@ import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { useRouter } from 'next/router';
+import { Delete } from 'mdi-material-ui';
+//import { generalApoloClient } from '@/config/apolloClient';
+import { validateGraphQlError } from '@/utils/ValidateError';
+//import CircularLoader from '@/view/CircularLoader';
 
 const schema = yup.object().shape({
   question: yup.string().required('Please enter question'),
@@ -45,17 +50,39 @@ const UpdateQuestionnaires = () => {
   });
 
   const onSubmit = async () => {
-    toast.success('New Onboarding Created!');
+    toast.success('Update Onboarding Created!');
     router.push('/onboarding');
 
     return true;
+  };
+  const onDelete = async () => {
+    try {
+      if (router.query?.id) {
+        toast.success('Onboarding Deleted!');
+        router.push('/onboarding');
+      }
+    } catch (error) {
+      validateGraphQlError(error);
+    }
   };
 
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title="Update Onboarding" titleTypographyProps={{ variant: 'h6' }} />
+          <CardHeader
+            title="Update Onboarding"
+            titleTypographyProps={{ variant: 'h6' }}
+            action={
+              <IconButton
+                size="small"
+                aria-label="collapse"
+                sx={{ color: 'red' }}
+                onClick={onDelete}>
+                <Delete fontSize="small" />
+              </IconButton>
+            }
+          />
           <Divider sx={{ m: 0 }} />
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent>
