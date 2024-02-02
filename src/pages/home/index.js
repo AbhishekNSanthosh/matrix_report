@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import SalesChart from '@/view/Dashboard/SalesChart';
 import { CardContent } from '@mui/material';
+import Invoice from '@/view/Dashboard/Invoice';
 
 const CountCard = ({
   onClick,
@@ -224,6 +225,9 @@ const Home = () => {
             </Grid>
           </Grid>
         </CardContent>
+      </Grid>
+      <Grid item xs={12} md={8}>
+        <Invoice />
       </Grid>
     </Grid>
   );

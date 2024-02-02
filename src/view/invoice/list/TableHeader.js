@@ -20,35 +20,22 @@ const TableHeader = (props) => {
         width: '100%',
         display: 'flex',
         flexWrap: 'wrap',
-        alignItems: 'center',
+        alignItems: 'flex-end', // Updated this line to 'flex-end'
         justifyContent: 'space-between'
       }}>
-      <Select
+      <TextField
         size="small"
-        displayEmpty
-        defaultValue=""
-        sx={{ mr: 4, mb: 2 }}
-        disabled={selectedRows && selectedRows.length === 0}
-        renderValue={(selected) => (selected.length === 0 ? 'Actions' : selected)}>
-        <MenuItem value="Delete">Delete</MenuItem>
-        <MenuItem value="Edit">Edit</MenuItem>
-        <MenuItem value="Send">Send</MenuItem>
-      </Select>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-        <TextField
-          size="small"
-          value={value}
-          placeholder="Search Invoice"
-          sx={{ mr: 4, mb: 2, maxWidth: '180px' }}
-          onChange={(e) => handleFilter(e.target.value)}
-        />
+        value={value}
+        placeholder="Search Invoice"
+        sx={{ mr: 4, mb: 2, maxWidth: '180px' }}
+        onChange={(e) => handleFilter(e.target.value)}
+      />
 
-        <Link href="/invoices/add" passHref>
-          <Button sx={{ mb: 2 }} variant="contained">
-            Create Invoice
-          </Button>
-        </Link>
-      </Box>
+      <Link href="/invoices/add" passHref>
+        <Button sx={{ mb: 2 }} variant="contained">
+          Create Invoice
+        </Button>
+      </Link>
     </Box>
   );
 };
