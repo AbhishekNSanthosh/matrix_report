@@ -39,7 +39,7 @@ export const DRAWER_NAVIGATION_LIST = [
     acl: 'coach'
   },
   {
-    path: '/questionnaires',
+    path: '/zatcaLogs',
     id: '4',
     title: 'Zatca Logs',
     translationKey: '',

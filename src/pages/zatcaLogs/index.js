@@ -27,7 +27,7 @@ const columns = [
     flex: 0.03,
     minWidth: 200,
     field: 'order_no',
-    headerName: 'Order',
+    headerName: 'Invoice No',
     renderCell: ({ row }) => {
       return (
         <Typography noWrap variant="body2">
@@ -37,27 +37,14 @@ const columns = [
     }
   },
   {
-    flex: 0.02,
-    minWidth: 100,
-    field: 'order_type',
-    headerName: 'Order Type',
+    flex: 0.03,
+    minWidth: 200,
+    field: 'description',
+    headerName: 'Description',
     renderCell: ({ row }) => {
       return (
         <Typography noWrap variant="body2">
-          {row?.order_type}
-        </Typography>
-      );
-    }
-  },
-  {
-    flex: 0.02,
-    minWidth: 100,
-    field: 'plan_type',
-    headerName: 'Plan Type',
-    renderCell: ({ row }) => {
-      return (
-        <Typography noWrap variant="body2">
-          {row?.plan_type}
+          {row?.description == 'Null'}
         </Typography>
       );
     }
@@ -85,35 +72,22 @@ const columns = [
   {
     flex: 0.03,
     minWidth: 200,
-    field: 'first_name',
-    headerName: 'Customer',
+    field: 'Time',
+    headerName: 'Time',
     renderCell: ({ row }) => {
       return (
         <Typography noWrap variant="body2">
-          {row?.user?.first_name} {row?.user?.last_name}
+          {row.created_at ? new Date(+row.created_at).toLocaleTimeString() : 'No time'}
         </Typography>
       );
     }
   },
 
   {
-    flex: 0.02,
-    minWidth: 100,
-    field: 'amount',
-    headerName: 'Total',
-    renderCell: ({ row }) => {
-      return (
-        <Typography noWrap variant="body2">
-          {row?.currency?.code} {row?.amount}
-        </Typography>
-      );
-    }
-  },
-  {
     flex: 0.03,
     minWidth: 200,
     field: 'created_at',
-    headerName: 'Created On',
+    headerName: 'Date',
     renderCell: ({ row }) => {
       return (
         <Typography noWrap variant="body2">
@@ -180,8 +154,8 @@ const Order = () => {
           <TableHeader
             value={search}
             handleFilter={setSearch}
-            placeholder="Order No..."
-            title="Orders">
+            placeholder="Search"
+            title="Zatca Logs">
             {/* <Box sx={{ display: 'flex', gap: '8px' }}>
               <CustomChipButton
                 color={!router?.query?.type ? undefined : 'primary'}
@@ -216,9 +190,9 @@ const Order = () => {
             pagination={false}
             columns={columns}
             disableSelectionOnClick
-            onCellClick={(item) => {
-              router.push(`/orders/${item?.id}`);
-            }}
+            // onCellClick={(item) => {
+            //   router.push(`/za/${item?.id}`);
+            // }}
             sx={{
               '& .MuiDataGrid-columnHeaders': { borderRadius: 0 },
               '& .MuiDataGrid-row': { cursor: 'pointer' }
