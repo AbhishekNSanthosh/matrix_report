@@ -121,7 +121,7 @@ const Home = () => {
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
         <Grid>
           <Typography variant={'h5'} sx={{ fontWeight: '500' }}>
-            ZATCA INTERGRATION DASHBOARD
+            ZATCA INTEGRATION DASHBOARD
           </Typography>
           <Typography variant={'body1'} sx={{ fontWeight: '400' }}>
             Welcome Back Zatca Admin....
@@ -177,28 +177,28 @@ const Home = () => {
         <CountCard
           loading={false}
           onClick={() => router.push('')}
-          count="32"
+          count="54000"
           icon={'/images/icons/promotions.png'}
           totalHeading={'Total Amount'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
-          count="25"
+          count="25600"
           icon={'/images/icons/promotions.png'}
           totalHeading={'Total Amount Per Month'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
-          count="11"
+          count="65000"
           icon={'/images/icons/promotions.png'}
           totalHeading={'Total Tax Amount'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
-          count="32"
+          count="35600"
           icon={'/images/icons/promotions.png'}
           totalHeading={'Total Tax Amount Monthly'}
         />

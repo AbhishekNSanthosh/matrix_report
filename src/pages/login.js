@@ -184,7 +184,7 @@ const Login = () => {
             fullWidth
             variant="contained"
             sx={styles.button}>
-            Sign In
+            SIGN IN
           </LoadingButton>
 
           {/* <Typography sx={{ mb: 2.5, mt: 5 }} textAlign="center">
@@ -205,7 +205,9 @@ const Login = () => {
 };
 
 const LoginContainerGrid = styled(Grid)(({ theme }) => ({
-  bbackgroundImage: '',
+  backgroundImage: 'url("/bg.png")',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
   borderRadius: theme.spacing(1.5),
   boxShadow: '0px 1px 3px 0px rgba(0, 0, 0, 0.08)',
   padding: theme.spacing(4.5),
@@ -241,7 +243,7 @@ const styles = {
     width: '100%',
     my: 3
   },
-  button: { backgroundColor: '#259FCA', color: '#FFF' }
+  button: { backgroundColor: '#60B566', color: '#FFF', fontWeight: 'bold' }
 };
 
 Login.getLayout = (page) => page;

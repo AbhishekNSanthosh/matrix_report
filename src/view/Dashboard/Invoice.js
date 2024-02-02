@@ -129,27 +129,23 @@ const defaultColumns = [
     flex: 0.1,
     minWidth: 80,
     field: 'id',
-    headerName: 'No',
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        No
+      </Typography>
+    ),
     renderCell: ({ row }) => <Typography variant="body2">{`${row.id}`}</Typography>
   },
-  // {
-  //   flex: 0.1,
-  //   minWidth: 80,
-  //   field: 'invoiceStatus',
-  //   renderHeader: () => <TrendingUp fontSize="small" sx={{ color: 'action.active' }} />,
-  //   renderCell: ({ row }) => {
-  //     const { dueDate, balance, invoiceStatus } = row;
-  //     const color = invoiceStatusObj[invoiceStatus]
-  //       ? invoiceStatusObj[invoiceStatus].color
-  //       : 'primary';
-  //     const Icon = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].icon : null;
-  //   }
-  // },
+
   {
     flex: 0.1,
     minWidth: 200,
     field: 'invoice_no',
-    headerName: 'Invoice No',
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Invoice No
+      </Typography>
+    ),
     renderCell: ({ row }) => <Typography variant="body2">{`${row.invoice_no || 0}`}</Typography>
   },
 
@@ -157,36 +153,44 @@ const defaultColumns = [
     flex: 0.1,
     minWidth: 200,
     field: 'amount',
-    headerName: 'Amount',
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Amount
+      </Typography>
+    ),
     renderCell: ({ row }) => <Typography variant="body2">{`$${row.amount || 0}`}</Typography>
   },
   {
     flex: 0.15,
     minWidth: 125,
     field: 'date',
-    headerName: 'Date',
-    renderCell: ({ row }) => (
-      <Typography variant="body2">
-        {row.created_at ? new Date(+row.date).toLocaleTimeString() : 'No time'}
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Date
       </Typography>
-    )
+    ),
+    renderCell: ({ row }) => <Typography variant="body2">{row.date}</Typography>
   },
   {
     flex: 0.15,
     minWidth: 125,
     field: 'time',
-    headerName: 'Time',
-    renderCell: ({ row }) => (
-      <Typography variant="body2">
-        {row.time ? new Date(+row.time).toDateString() : 'No date'}
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Time
       </Typography>
-    )
+    ),
+    renderCell: ({ row }) => <Typography variant="body2">{row.time}</Typography>
   },
   {
     flex: 0.02,
     minWidth: 100,
     field: 'status',
-    headerName: 'Status',
+    headerName: (
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Status
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       return (
         <Chip
@@ -229,33 +233,33 @@ const staticData = [
     id: 2,
     invoice_no: 'IN0002',
     amount: '58947',
-    zatca_status: 'Success',
+    status: 'Success',
     date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
-    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+    time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
   },
   {
     id: 3,
     invoice_no: 'IN0003',
     amount: '9855',
-    zatca_status: 'Failed',
+    status: 'Failed',
     date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
-    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+    time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
   },
   {
     id: 4,
     invoice_no: 'IN0004',
     amount: '76543',
-    zatca_status: 'Success',
+    status: 'Success',
     date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
-    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+    time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
   },
   {
     id: 5,
     invoice_no: 'IN0005',
     amount: '8774',
-    zatca_status: 'Failed',
+    status: 'Failed',
     date: Date.now() ? new Date(+Date.now()).toDateString() : 'No date',
-    Time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
+    time: Date.now() ? new Date(+Date.now()).toLocaleTimeString() : 'No time'
   }
   // Add more static data items as needed
 ];
@@ -335,7 +339,13 @@ const Invoice = () => {
         <Card>
           {/* Pass the static data to your table component */}
           {/* <TableHeader value={value} selectedRows={selectedRows} handleFilter={handleFilter} /> */}
-          <Typography variant="h5" sx={{ mt: 3, mb: 3, fontWeight: 'bold' }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 'bold',
+              variant: 'caption',
+              padding: '20px'
+            }}>
             Invoice Details
           </Typography>
           <DataGrid
@@ -347,7 +357,7 @@ const Invoice = () => {
             disableSelectionOnClick
             pageSize={Number(pageSize)}
             rowsPerPageOptions={[10, 25, 50]}
-            sx={{ '& .MuiDataGrid-columnHeaders': { borderRadius: 0 } }}
+            sx={{ '& .MuiDataGrid-columnHeaders': { borderRadius: 0 }, fontWeight: 'bold' }}
             onSelectionModelChange={(rows) => setSelectedRows(rows)}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           />

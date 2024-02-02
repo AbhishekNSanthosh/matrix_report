@@ -41,7 +41,7 @@ export const DRAWER_NAVIGATION_LIST = [
   {
     path: '/zatcaLogs',
     id: '4',
-    title: 'Zatca Logs',
+    title: 'ZATCA Logs',
     translationKey: '',
     icon: PencilBox,
     acl: 'questionnaires'

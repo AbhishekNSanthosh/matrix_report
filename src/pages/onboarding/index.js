@@ -16,66 +16,6 @@ const staticOnboarding = [
     Address: '123 Main St',
     Business_Category: 'Category A',
     updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 2,
-    Unique_Name: 'Name 2',
-    Company_Name: 'Company B',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 3,
-    Unique_Name: 'Name 3',
-    Company_Name: 'Company C',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 4,
-    Unique_Name: 'Name 4',
-    Company_Name: 'Company D',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 5,
-    Unique_Name: 'Name 5',
-    Company_Name: 'Company E',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 6,
-    Unique_Name: 'Name 6',
-    Company_Name: 'Company F',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
-  },
-  {
-    id: 7,
-    Unique_Name: 'Name 7',
-    Company_Name: 'Company G',
-    Tax_Number: '123456',
-    TIN: 'TIN123',
-    Address: '123 Main St',
-    Business_Category: 'Category A',
-    updated_at: Date.now() ? new Date(+Date.now()).toDateString() : 'No date'
   }
 ];
 const columns = [
@@ -111,12 +51,9 @@ const onboarding = () => {
       <Grid item xs={12}>
         <Card>
           <TableHeader
-            value={search}
-            handleFilter={setSearch}
             toggle={() => router.push('/onboarding/add')}
-            placeholder="Search "
-            buttonLabel="Add Logs"
-            title="Logs"
+            buttonLabel="Add Onboarding"
+            title="Onboarding"
           />
           <DataGrid
             autoHeight

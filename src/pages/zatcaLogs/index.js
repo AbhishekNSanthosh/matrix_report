@@ -36,19 +36,7 @@ const columns = [
       );
     }
   },
-  {
-    flex: 0.03,
-    minWidth: 200,
-    field: 'description',
-    headerName: 'Description',
-    renderCell: ({ row }) => {
-      return (
-        <Typography noWrap variant="body2">
-          {row?.description == 'Null'}
-        </Typography>
-      );
-    }
-  },
+
   {
     flex: 0.02,
     minWidth: 100,
@@ -92,6 +80,20 @@ const columns = [
       return (
         <Typography noWrap variant="body2">
           {row.created_at ? new Date(+row.created_at).toDateString() : 'No date'}
+        </Typography>
+      );
+    }
+  },
+  {
+    flex: 0.03,
+    minWidth: 200,
+    field: 'failure_reason',
+    headerName: 'Failure Reasons',
+    renderCell: () => {
+      const staticValue = 'Failure Reasons';
+      return (
+        <Typography noWrap variant="body2">
+          {staticValue}
         </Typography>
       );
     }
