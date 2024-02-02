@@ -118,7 +118,7 @@ const Login = () => {
             Tax Live
           </Typography>
           <Typography color="text.main" sx={styles.welcomeHeader}>
-            Hi, welcome back!
+            Hi,Welcome Back !
           </Typography>
           <FormControl fullWidth>
             <Controller
@@ -205,7 +205,7 @@ const Login = () => {
 };
 
 const LoginContainerGrid = styled(Grid)(({ theme }) => ({
-  backgroundColor: '#fff',
+  bbackgroundImage: '',
   borderRadius: theme.spacing(1.5),
   boxShadow: '0px 1px 3px 0px rgba(0, 0, 0, 0.08)',
   padding: theme.spacing(4.5),

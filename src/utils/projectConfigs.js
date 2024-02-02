@@ -31,7 +31,7 @@ export const DRAWER_NAVIGATION_LIST = [
   },
 
   {
-    path: '/orders',
+    path: '/onboarding',
     id: '3',
     title: 'Onboarding',
     translationKey: '',

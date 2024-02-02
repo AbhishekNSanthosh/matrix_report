@@ -17,11 +17,8 @@ import toast from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { validateGraphQlError } from 'src/utils/ValidateError';
+
 import { useRouter } from 'next/router';
-import { generalApoloClient } from '@/config/apolloClient';
-import { GET_ALL_LANGUAGES } from '@/graphql/languages';
-import { ADD_QUESTIONNAIRES } from '@/graphql/Questionnaires';
 
 const schema = yup.object().shape({
   question: yup.string().required('Please enter question'),
@@ -39,7 +36,7 @@ const AddQuestionnaires = () => {
   const {
     control,
     handleSubmit,
-    setError,
+
     formState: { errors, isSubmitting }
   } = useForm({
     defaultValues: { question: '', type: '', options: '', order: '', status: '', translations: {} },
@@ -47,77 +44,137 @@ const AddQuestionnaires = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = async (params) => {
-    let translations = [];
+  const onSubmit = async () => {
+    toast.success('New Onboarding Created!');
+    router.push('/onboarding');
 
-    if (params?.translations) {
-      Object.keys(params?.translations).map((key) => {
-        if (params?.translations[key]) {
-          translations.push({ id: key, value: params?.translations[key] });
-        }
-      });
-    }
-
-    try {
-      let { data } = await generalApoloClient.mutate({
-        mutation: ADD_QUESTIONNAIRES,
-        variables: {
-          questionnaire: {
-            question: params?.question,
-            type: params?.type,
-            options: params?.options,
-            order: +params?.order,
-            status: params?.status
-          },
-          translations: translations || []
-        }
-      });
-      if (data?.createQuestionnaire) {
-        toast.success('New Questionnaire Created!');
-        router.push('/questionnaires');
-      }
-      return true;
-    } catch (error) {
-      let errorData = validateGraphQlError(error);
-      if (errorData?.code) {
-        setError('code', { message: errorData.code });
-      }
-      return false;
-    }
+    return true;
   };
 
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title="Create Questionnaires" titleTypographyProps={{ variant: 'h6' }} />
+          <CardHeader title="Create Onboarding" titleTypographyProps={{ variant: 'h6' }} />
           <Divider sx={{ m: 0 }} />
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent>
               <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    Questionnaires
+                    Onboarding
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={6} md={8}>
+                <Grid item xs={12} sm={6} md={4}>
                   <FormControl fullWidth>
                     <Controller
-                      name="question"
+                      name="Name"
                       control={control}
                       rules={{ required: true }}
                       render={({ field: { value, onChange } }) => (
                         <TextField
                           value={value}
-                          label="Question"
+                          label="Unique Name"
                           onChange={onChange}
-                          placeholder="Question"
+                          placeholder="Unique Name"
+                          error={Boolean(errors?.code)}
+                        />
+                      )}
+                    />
+                    {errors?.name && (
+                      <FormHelperText sx={{ color: 'error.main' }}>
+                        {errors?.name?.message}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <Controller
+                      name="company_name"
+                      control={control}
+                      rules={{ required: true }}
+                      render={({ field: { value, onChange } }) => (
+                        <TextField
+                          value={value}
+                          label="Company Name"
+                          onChange={onChange}
+                          placeholder="Company Name"
+                          error={Boolean(errors?.code)}
+                        />
+                      )}
+                    />
+                    {errors?.company_name && (
+                      <FormHelperText sx={{ color: 'error.main' }}>
+                        {errors?.company_name?.message}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <Controller
+                      name="tax_number"
+                      control={control}
+                      rules={{ required: true }}
+                      render={({ field: { value, onChange } }) => (
+                        <TextField
+                          value={value}
+                          label="Tax Number"
+                          onChange={onChange}
+                          placeholder="Tax Number"
+                          error={Boolean(errors?.code)}
+                        />
+                      )}
+                    />
+                    {errors?.company_name && (
+                      <FormHelperText sx={{ color: 'error.main' }}>
+                        {errors?.company_name?.message}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <Controller
+                      name="branch_name"
+                      control={control}
+                      rules={{ required: true }}
+                      render={({ field: { value, onChange } }) => (
+                        <TextField
+                          value={value}
+                          label="Branch Name"
+                          onChange={onChange}
+                          placeholder="Branch Number"
+                          error={Boolean(errors?.code)}
+                        />
+                      )}
+                    />
+                    {errors?.branch_name && (
+                      <FormHelperText sx={{ color: 'error.main' }}>
+                        {errors?.branch_name?.message}
+                      </FormHelperText>
+                    )}
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={8}>
+                  <FormControl fullWidth>
+                    <Controller
+                      name="Address"
+                      control={control}
+                      rules={{ required: true }}
+                      render={({ field: { value, onChange } }) => (
+                        <TextField
+                          value={value}
+                          label="Address"
+                          onChange={onChange}
+                          placeholder="Address"
                           error={Boolean(errors?.code)}
                           multiline
                         />
                       )}
                     />
-                    {errors?.question && (
+                    {errors?.Address && (
                       <FormHelperText sx={{ color: 'error.main' }}>
                         {errors?.question?.message}
                       </FormHelperText>
@@ -126,103 +183,55 @@ const AddQuestionnaires = () => {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                   <FormControl fullWidth>
-                    <InputLabel id="status">Type</InputLabel>
+                    <InputLabel id="category">Business Category</InputLabel>
                     <Controller
-                      name="type"
+                      name="category"
                       control={control}
                       rules={{ required: true }}
                       render={({ field: { value, onChange } }) => (
                         <Select
                           onChange={onChange}
                           value={value}
-                          label="Type"
-                          placeholder="Type"
+                          label="Business Category"
+                          placeholder="Business Category"
                           error={Boolean(errors.status)}
-                          labelId="type">
+                          labelId="category">
                           {/* <MenuItem value={'checkbox'}>Yes/No</MenuItem> */}
-                          <MenuItem value={'text'}>Text Field</MenuItem>
-                          <MenuItem value={'radio'}>Radio</MenuItem>
+                          <MenuItem value="Category1">Category 1</MenuItem>
+                          <MenuItem value="Category2">Category 2</MenuItem>
+                          <MenuItem value="Category3">Category 3</MenuItem>
+                          <MenuItem value="Category4">Category 4</MenuItem>
                         </Select>
                       )}
                     />
 
-                    {errors.type && (
+                    {errors.category && (
                       <FormHelperText sx={{ color: 'error.main' }}>
-                        {errors.type.message}
+                        {errors.category.message}
                       </FormHelperText>
                     )}
                   </FormControl>
                 </Grid>
+
                 <Grid item xs={12} sm={6} md={4}>
                   <FormControl fullWidth>
                     <Controller
-                      name="options"
+                      name="otp"
                       control={control}
                       rules={{ required: true }}
                       render={({ field: { value, onChange } }) => (
                         <TextField
                           value={value}
-                          label="Option"
+                          label="OTP"
                           onChange={onChange}
-                          placeholder="Options here with split comma(,)"
+                          placeholder="OTP here..."
                           error={Boolean(errors?.code)}
                         />
                       )}
                     />
-                    {errors?.options && (
+                    {errors?.otp && (
                       <FormHelperText sx={{ color: 'error.main' }}>
-                        {errors?.options?.message}
-                      </FormHelperText>
-                    )}
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <FormControl fullWidth>
-                    <Controller
-                      name="order"
-                      control={control}
-                      rules={{ required: true }}
-                      render={({ field: { value, onChange } }) => (
-                        <TextField
-                          value={value}
-                          label="Order"
-                          onChange={onChange}
-                          placeholder="question order here..."
-                          error={Boolean(errors?.code)}
-                        />
-                      )}
-                    />
-                    {errors?.order && (
-                      <FormHelperText sx={{ color: 'error.main' }}>
-                        {errors?.order?.message}
-                      </FormHelperText>
-                    )}
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <FormControl fullWidth>
-                    <InputLabel id="status">Status</InputLabel>
-                    <Controller
-                      name="status"
-                      control={control}
-                      rules={{ required: true }}
-                      render={({ field: { value, onChange } }) => (
-                        <Select
-                          onChange={onChange}
-                          value={value}
-                          label="Status"
-                          placeholder="Status"
-                          error={Boolean(errors.status)}
-                          labelId="status">
-                          <MenuItem value={1}>Active</MenuItem>
-                          <MenuItem value={0}>Disable</MenuItem>
-                        </Select>
-                      )}
-                    />
-
-                    {errors.status && (
-                      <FormHelperText sx={{ color: 'error.main' }}>
-                        {errors.status.message}
+                        {errors?.otp?.message}
                       </FormHelperText>
                     )}
                   </FormControl>
@@ -246,28 +255,5 @@ const AddQuestionnaires = () => {
     </Grid>
   );
 };
-
-export async function getServerSideProps() {
-  try {
-    const [languageRes] = await Promise.all([
-      generalApoloClient.query({
-        query: GET_ALL_LANGUAGES
-      })
-    ]);
-
-    return {
-      props: {
-        languages: languageRes?.data?.languages || []
-      }
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return {
-      props: {
-        languages: []
-      }
-    };
-  }
-}
 
 export default AddQuestionnaires;

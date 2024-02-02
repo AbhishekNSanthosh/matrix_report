@@ -54,23 +54,55 @@ const CountCard = ({
     </Card>
   </Grid>
 );
-const LevelWiseCountCard = ({ beginnericon, beginnerCount, begginnerHeading }) => (
+const LevelWiseCountCard = ({
+  beginnericon,
+  beginnerCount,
+  begginnerHeading,
+  intermediateIcon,
+  interCount,
+  interHeading,
+  expertIcon,
+  expertCount,
+  expertHeading
+}) => (
   <Card sx={{ boxShadow: 'rgb(76 78 100 / 8%) 0px 2px 10px 0px', p: 2, position: 'relative' }}>
     <Typography variant="h6" sx={{ color: '#4A4E5A', fontWeight: 'bold' }}>
-      Product Status
+      Todays Status
     </Typography>
     <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
       890,344 Sales
     </Typography>
     <Grid container spacing={3}>
-      <Grid item xs={6}>
-        <Box sx={{ display: 'flex' }}>
+      <Grid item xs={4}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Image objectFit="contain" height={30} width={30} src={beginnericon} />
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {beginnerCount}
           </Typography>
           <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
             {begginnerHeading}
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid item xs={4}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Image objectFit="contain" height={30} width={30} src={intermediateIcon} />
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            {interCount}
+          </Typography>
+          <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
+            {interHeading}
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid item xs={4}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Image objectFit="contain" height={30} width={30} src={expertIcon} />
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            {expertCount}
+          </Typography>
+          <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
+            {expertHeading}
           </Typography>
         </Box>
       </Grid>
@@ -88,7 +120,7 @@ const Home = () => {
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
         <Grid>
           <Typography variant={'h5'} sx={{ fontWeight: '500' }}>
-            Zatca
+            ZATCA INTERGRATION DASHBOARD
           </Typography>
           <Typography variant={'body1'} sx={{ fontWeight: '400' }}>
             Welcome Back Zatca Admin....
@@ -181,13 +213,13 @@ const Home = () => {
                 loading={false}
                 beginnericon={'/images/icons/promotions.png'}
                 beginnerCount={140}
-                begginnerHeading="Begginner"
+                begginnerHeading="Total Invoices"
                 intermediateIcon={'/images/icons/promotions.png'}
                 interCount={65}
-                interHeading="Intermediate"
+                interHeading="Total Success"
                 expertIcon={'/images/icons/promotions.png'}
                 expertCount={20}
-                expertHeading="Expert"
+                expertHeading="Total Failures"
               />
             </Grid>
           </Grid>

@@ -93,11 +93,11 @@ const SalesChart = () => {
 
   const series = [
     {
-      name: 'Income',
+      name: 'Success',
       data: [100, 120, 90, 170, 130, 160, 140, 240, 220, 180, 270, 280]
     },
     {
-      name: 'Expense',
+      name: 'Failure',
       data: [60, 80, 70, 110, 80, 100, 90, 180, 160, 140, 200, 220]
     }
   ];
@@ -108,7 +108,7 @@ const SalesChart = () => {
         boxShadow: 'rgb(76 78 100 / 8%) 0px 2px 10px 0px'
       }}>
       <CardHeader
-        title="Plan/Package Sales"
+        title="Integration Status"
         titleTypographyProps={{ variant: 'h5', fontWeight: 'bold' }}
         subheaderTypographyProps={{ variant: 'caption', sx: { color: 'text.disabled' } }}
         sx={{
