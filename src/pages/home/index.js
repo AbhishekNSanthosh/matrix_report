@@ -10,10 +10,10 @@ import { CardContent } from '@mui/material';
 
 const CountCard = ({
   onClick,
-  label,
+
   count,
   loading,
-  icon,
+
   totalHeading,
   SalesCount,
   salesHeading
@@ -39,21 +39,14 @@ const CountCard = ({
         )}
       </Box>
 
-      <Box sx={{ display: 'inline-flex', padding: 1, borderRadius: 2 }}>
-        <Image objectFit="contain" height={30} width={30} src={icon} />
-        <Typography variant="h5" mt={1} sx={{ color: '#4A4E5A', fontWeight: 'bold' }}>
-          {label}
-        </Typography>
-      </Box>
-
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'right' }}>
         {loading ? null : (
           <>
+            <Typography variant="body1" sx={{ color: '#4A4E5A', fontWeight: 'bold' }}>
+              {totalHeading}
+            </Typography>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
               {count}
-            </Typography>
-            <Typography variant="body1" sx={{ color: '#4A4E5A' }}>
-              {totalHeading}
             </Typography>
           </>
         )}
@@ -136,55 +129,74 @@ const Home = () => {
         <CountCard
           loading={false}
           onClick={() => router.push('/')}
-          label={'Customers'}
           count="30"
           icon={'/images/icons/users.jpg'}
-          totalHeading={'Total Customers'}
+          totalHeading={'Total Invoices'}
         />
 
         <CountCard
           loading={false}
           onClick={() => router.push('/')}
-          label="Coach's"
           count="30"
           icon={'/images/icons/users.jpg'}
-          totalHeading={'Total Coaches'}
+          totalHeading={'Total Per Month'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
           count="24"
-          SalesCount={50}
           icon={'/images/icons/promotions.png'}
-          totalHeading={'Total Muscle Groups'}
-          salesHeading={'Total Sales'}
+          totalHeading={'Total Sucess'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
           count="35"
-          SalesCount={100}
           icon={'/images/icons/promotions.png'}
-          totalHeading={'Total Libraries'}
-          salesHeading={'Total Sales'}
+          totalHeading={'Total Sucess per Month'}
+        />
+
+        <CountCard
+          loading={false}
+          onClick={() => router.push('')}
+          count="25"
+          icon={'/images/icons/promotions.png'}
+          totalHeading={'Invoice Failed'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
-          count="15"
-          SalesCount={150}
+          count="10"
           icon={'/images/icons/promotions.png'}
-          totalHeading={'Total Plans'}
-          salesHeading={'Total Sales'}
+          totalHeading={'Invoice Failed Today'}
+        />
+        <CountCard
+          loading={false}
+          onClick={() => router.push('')}
+          count="32"
+          icon={'/images/icons/promotions.png'}
+          totalHeading={'Total Amount'}
         />
         <CountCard
           loading={false}
           onClick={() => router.push('')}
           count="25"
-          SalesCount={65}
           icon={'/images/icons/promotions.png'}
-          totalHeading={'Total Packages'}
-          salesHeading={'Total Sales'}
+          totalHeading={'Total Amount Per Month'}
+        />
+        <CountCard
+          loading={false}
+          onClick={() => router.push('')}
+          count="11"
+          icon={'/images/icons/promotions.png'}
+          totalHeading={'Total Tax Amount'}
+        />
+        <CountCard
+          loading={false}
+          onClick={() => router.push('')}
+          count="32"
+          icon={'/images/icons/promotions.png'}
+          totalHeading={'Total Tax Amount Monthly'}
         />
       </Grid>
       <Grid item xs={12} md={8}>
